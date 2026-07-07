@@ -1,0 +1,63 @@
+# Doctor Visit Prep
+
+The average primary-care visit is 15-18 minutes. Unprepared, the first
+five go to reconstructing history from memory ("it started... maybe
+three weeks ago?") and the best questions surface in the parking lot.
+Preparation moves the recall work to the night before, so the visit's
+minutes go to the part only the clinician can do.
+
+**Scope rule, stated up front: this skill organizes and prepares. It
+never advises.** It will not interpret symptoms, suggest diagnoses, or
+evaluate treatments. It produces better inputs for the professional —
+that's the whole job. If a symptom feels urgent, contact a medical
+professional or emergency services now, not a prep document.
+
+## The prep, three artifacts (30-45 minutes, 1-2 days before)
+
+1. **Symptom timeline.** Dated entries, most recent first, facts only:
+   what, when, how long, severity (0-10, your own consistent scale),
+   what makes it better/worse, what you tried. "Jan 12: headache, right
+   side, 6/10, ~4 hours, worse in the afternoon, ibuprofen helped
+   partially." Started before you began tracking? Anchor to events:
+   "began around the holidays" beats "a while ago." Keep it running
+   between visits — two lines a week beats one heroic reconstruction.
+2. **Current list.** Every medication with dose and frequency, plus
+   supplements and anything over-the-counter you take regularly —
+   supplements count and are the most-omitted item. Note allergies and
+   reactions. Bring the list; do not recite from memory.
+3. **Question list, prioritized, max 5.** Top 3 are the ones you will
+   ask even if time runs short — order them before the visit, because
+   you will not triage well in the room. Phrase as questions, not
+   theories: "what could explain X?" travels better than "I think it's
+   Y." Leave space to write the answers — post-visit recall of verbal
+   answers is famously poor.
+
+## Worked example
+
+Recurring dizziness, second visit after an inconclusive first one. Prep:
+timeline shows 9 episodes over 6 weeks, and writing them down surfaces a
+pattern memory had missed — 7 of 9 were mornings, within an hour of
+waking. Current list includes a blood-pressure medication dose-changed
+7 weeks ago and a magnesium supplement the patient "didn't think counted."
+Questions, prioritized: (1) could the timing pattern and the dose change
+be related? (2) what should be tracked before next visit? (3) what result
+would warrant calling sooner? The clinician spends the visit on exactly
+those — the timing pattern plus the med list turns out to be the
+productive thread. No self-diagnosis happened: the prep just made the
+15 minutes count.
+
+## Validation
+
+- Timeline entries are dated, severity-scored, and free of diagnosis
+  language (facts observed, not conclusions drawn).
+- The current list includes supplements and OTC items — if it's all
+  prescriptions, it's probably incomplete.
+- Questions: ≤5, prioritized, phrased as questions. If you left the
+  visit with your top-3 unasked, the prep failed — shorten the list
+  next time.
+- The advise-boundary check: nothing in the prep documents interprets
+  or concludes. Anything that does gets rewritten as a question.
+
+The 0-10 scale, max-5 questions, and 1-2-day lead time are defaults;
+the three-artifact structure and the facts-not-conclusions rule are
+the skill.

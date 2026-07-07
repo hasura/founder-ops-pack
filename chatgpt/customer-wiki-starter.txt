@@ -1,0 +1,82 @@
+# Customer Wiki Starter
+
+The most expensive form of company memory loss is customer context: the
+promise made on a call six months ago, the fact that the champion hates
+surprises, the reason they almost churned last year. When that lives in
+one person's head, every handoff, vacation, and departure is a controlled
+demolition of the relationship.
+
+One page per account. The bar for what goes on it: **would the next
+person to talk to this customer be embarrassed not to know it?**
+
+## The page template
+
+1. **Facts** — segment, plan/contract value, renewal date, key integration
+   or usage details. Pull these from your systems of record; the wiki
+   holds the pointer and the number, the system holds the truth.
+2. **People** — every contact you've met: role, what they personally care
+   about, their disposition toward you (champion / neutral / skeptic —
+   commit to a grade, and grade conservatively: a contact is a champion
+   only if they have *acted* like one, e.g. made an internal introduction
+   or defended you in a meeting you weren't in. Enthusiasm on calls is
+   neutral until proven otherwise).
+3. **Commitments** — every promise either side has made, with a date and
+   an owner. This section is append-only: a completed commitment is
+   marked done, never deleted. The graveyard of kept promises is your
+   credibility record; the list of open ones is your to-do list.
+4. **Nuances** — the things nobody writes down anywhere else: "CFO reads
+   every invoice line", "they got burned by their last vendor's surprise
+   renewal", "never schedule calls on Fridays (their release day)".
+   This section is why the page exists.
+5. **Timeline** — dated one-liners of significant events (escalations,
+   expansions, threats to churn, exec changes). Newest first. One line
+   each — the detail lives in your CRM/ticket system; the timeline is
+   the narrative spine.
+
+## Maintenance discipline
+
+- **Update within 24 hours of any significant interaction.** The nuance
+  you don't write down within a day is gone. "Significant" = anything
+  you'd mention if a colleague asked "anything I should know about them?"
+- **Grades get re-earned.** Re-verify each People grade at every renewal:
+  a champion who changed roles is a blank slate, not a champion.
+- **Handoff test:** before any vacation or transition, the incoming
+  person reads the page and lists their open questions. Every question
+  is a gap in the page — fix the page, not just the answer.
+
+## Worked example
+
+An account went quiet for five weeks after steady weekly usage. The page's
+**Nuances** section held: "budget re-approval happens every October;
+expect radio silence, do NOT run a re-engagement sequence into it — their
+champion called last year's one 'tone-deaf'." The on-call CS person (not
+the account owner, who was out) checked the page before acting, skipped
+the automated sequence, and sent one human note referencing the October
+cycle. The champion replied same-day. Without the page: a generic
+"we miss you!" email into a budget fight, from a company that had been
+told once already. The page turned institutional memory into the default
+behavior instead of tribal knowledge that was out of office.
+
+## Using it with AI agents
+
+An AI agent drafting outreach, prepping a call brief, or triaging an
+account question needs exactly these five sections. Keep pages as plain
+markdown — a folder of account pages works in any coding agent, Claude
+Project, Notion, or agent harness. Point the agent at the page and the
+draft comes back sounding like someone who knows the account.
+
+## Validation
+
+- Every account above your threshold (default: any account >$5K/year or
+  with >2 contacts) has a page.
+- Every People entry has a grade, and no grade is older than the last
+  renewal.
+- Commitments section has zero undated entries and zero entries without
+  an owner.
+- The handoff test, run quarterly on one random account: a colleague
+  reads the page cold and briefs you back. If the brief misses something
+  material that you knew, the page — not the colleague — failed.
+
+Defaults ($5K threshold, 24-hour rule, October example) are swappable;
+the five-section structure and the conservative-grading rule are the
+skill.

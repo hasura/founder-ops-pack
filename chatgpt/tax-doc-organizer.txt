@@ -1,0 +1,72 @@
+# Tax Doc Organizer
+
+Tax stress is mostly document stress: not the forms themselves but the
+not-knowing whether you have them all. The fix is a checklist by document
+type, a capture habit, and one folder structure — so that filing season
+starts with "everything's already here" instead of archaeology.
+
+**Scope rule, stated up front: this skill organizes and prepares. It
+never advises.** It will not interpret tax law, recommend deductions, or
+suggest filing strategies. Every judgment call it surfaces becomes a
+written question for your tax professional or software — with the
+relevant documents already attached.
+
+## The checklist, by document type
+
+Build once, reuse yearly. Mark each: expected / received / not-applicable.
+
+- **Income:** W-2 per employer; 1099-NEC/MISC per client (expect one per
+  client who paid you ≥$600); 1099-INT/DIV per bank and brokerage;
+  1099-B for sales; 1099-G (unemployment, state refunds); K-1s (these
+  arrive LATE — often March; note expected count from any partnerships).
+- **Adjustments & deductions:** 1098 (mortgage), 1098-E (student loan),
+  1098-T (tuition), property tax bills, charitable receipts (any single
+  gift ≥$250 needs the org's written acknowledgment), medical totals if
+  large, childcare provider statements (need their tax ID).
+- **Accounts:** 5498/1099-R (retirement), 1099-SA + 5498-SA (HSA).
+- **Life events this year:** moved states, married/divorced, kid born,
+  home bought/sold, side income started — each adds rows; list the event
+  and let your preparer name the forms.
+
+The count rule: **January's job is writing down how many of each you
+expect.** "Received 6 of 7 expected 1099s" is a status; a pile of PDFs
+is not.
+
+## Capture habit + folder structure
+
+- One folder per tax year, four subfolders: `income/`, `deductions/`,
+  `accounts/`, `questions/`. Flat beyond that.
+- File within 48 hours of arrival, naming: `YYYY_type_source.pdf`
+  (`2026_1099-NEC_acme.pdf`). Photograph paper documents same-day.
+- Receipts you *might* need go in as they occur, not in April — a
+  `deductions/maybe/` subfolder is fine; deciding what counts is your
+  preparer's job, having it findable is yours.
+- The `questions/` folder is the organize-not-advise boundary: anything
+  ambiguous ("client paid me via three platforms — which 1099s should
+  exist?") becomes a one-line question file with the evidence attached.
+
+## Worked example
+
+Freelancer, 5 clients, one brokerage, one K-1. January checklist: 5×
+1099-NEC expected, 1099-INT, 1099-DIV, 1099-B, one K-1 (flagged
+"arrives ~March 15"). By Feb 10: 4 of 5 NECs received — the checklist
+makes the missing one visible, one email to the client fixes it before
+it becomes an April emergency. K-1 arrives Mar 18, matching its flag —
+no panic, it was expected to be late. Preparer handoff: one folder, 11
+labeled files, 2 written questions. Preparer's actual quote: "you just
+saved an hour of my time" — at preparer rates, the folder paid for the
+year's filing habit by itself.
+
+## Validation
+
+- The checklist has an expected count for every row by Jan 31.
+- Zero unfiled documents older than 48 hours (spot-check monthly).
+- Every file matches the naming scheme — a folder that needs opening
+  files to identify them fails.
+- The advise-boundary check: the `questions/` folder contains questions,
+  not conclusions. Any note that interprets tax rules gets rewritten as
+  a question for the professional.
+
+The 48-hour rule, $600/$250 thresholds (US defaults — verify current
+values), and folder names are swappable; the expected-count discipline
+is the skill.
