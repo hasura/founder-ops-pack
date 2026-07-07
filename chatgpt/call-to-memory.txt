@@ -1,0 +1,120 @@
+# Call to Memory
+
+Post-call notes that actually land somewhere durable. Sanitized from a
+production deal-memory update workflow where agents process email, calendar,
+chat, and calls into account pages daily without double-writing.
+
+## Rule 1: the routing matrix
+
+Each source type maps to specific destination pages. Decided once, applied
+every time - not re-derived per item:
+
+| Source | Routes to |
+|---|---|
+| Call transcript | Qualification evidence, Contacts (stances), Action Plan, Timeline |
+| Email thread | Action Plan (commitments), Timeline; Paper Process if terms/legal |
+| Calendar event | Contacts (attendance), Timeline; no-show -> re-engage step |
+| Chat / DM | Timeline always; other pages ONLY on explicit commitment or new fact |
+
+The matrix kills the two failure modes of free-form processing: important
+things landing nowhere, and trivia landing everywhere.
+
+## Rule 2: high-water marks (never reprocess)
+
+Per account, per source, store the timestamp of the last item processed.
+Next run starts strictly after it. Never re-derive updates from already-
+processed items - reprocessing is how duplicate action items and contradictory
+stance labels breed. If you suspect a past item was mishandled, fix the page
+directly and log the fix in the timeline; do not re-run the item.
+
+## Rule 3: extraction bar
+
+From each item extract at most: 0-3 facts, 0-3 commitments, 0-2 stance changes.
+Hitting the cap consistently means items are too big (split the digest) - it
+does not mean raise the cap. Every extraction carries `source + date`.
+
+## If/then
+
+- If an extracted commitment already exists on the Action Plan -> update its
+  date/status; never append a duplicate row.
+- If a stance change contradicts the current label (blocker -> champion) ->
+  require a quote or event as evidence in the same edit; no silent flips.
+- If an item mentions a person not in Contacts -> add with stance `unknown`;
+  unknown is honest, guessed stances poison reviews.
+- If a source's high-water mark is older than 7 days -> the pipe is broken.
+  Fix ingestion before processing the backlog, oldest first, marks advancing
+  as you go.
+
+## Escalation
+
+- Same commitment slips its date twice -> flag to account owner directly;
+  a twice-slipped commitment is a stance signal, not a calendar problem.
+- Processing surfaces legal/security/pricing-approval items -> route to the
+  human owner same-day, never just to the page.
+
+## Worked example
+
+Tuesday 4 PM run for Acme. High-water marks: email `May 12 09:14`, calls
+`May 9`, chat `May 12 15:30`. New since marks: 1 call (May 12), 4 emails, 0 chats.
+Call routes: fact -> Qualification ("security review gates the deal", 31:20);
+commitment -> Action Plan ("send SOC 2 to Priya - you, May 14"); stance ->
+Contacts (Priya added, unknown). Emails: two newsletters (Timeline: nothing -
+below the fact bar), one thread where procurement asks Net-60 -> Paper Process
++ Timeline; one confirms Thursday meeting -> Timeline only. Marks advance to
+`call May 12`, `email May 12 16:02`. Wednesday's run starts after those -
+the Net-60 email can never generate a second Paper Process entry.
+
+## Definition of done
+
+- [ ] Every processed item routed per the matrix or explicitly dropped ("below bar")
+- [ ] High-water marks advanced for every source touched
+- [ ] Zero duplicate Action Plan rows created
+- [ ] Every stance change carries evidence
+- [ ] Anything requiring human judgment routed to a person, not just a page
+
+## Anti-patterns
+
+- **Re-deriving from scratch each run.** "Just reprocess the last 30 days to be
+  safe" breeds duplicate commitments with different dates - which one is real?
+  The high-water mark is not an optimization, it's a correctness rule.
+- **Stance flips without evidence.** One ambiguous email and a contact goes
+  champion -> blocker, silently. Require the quote. Reviews built on guessed
+  stances are fiction with a table of contents.
+- **Routing everything to Timeline "to be safe".** Timeline-as-dumping-ground
+  makes the one page that must stay readable unreadable. Below the fact bar
+  means DROPPED, and dropped is fine.
+- **Fixing mistakes by re-running items.** Re-running mishandled items applies
+  today's logic to yesterday's context and usually double-writes. Fix the page,
+  log the fix, move the mark on.
+
+## Setup (first run, ~30 minutes)
+
+1. Write your routing matrix - start from the table above, rename destinations
+   to your memory schema. Print it; tape it where processing happens.
+2. Initialize high-water marks to NOW for every account x source. Do not
+   backfill history on day one - a clean start you trust beats a backlog
+   you half-processed. Backfill later, account by account, oldest first.
+3. Do 3 accounts by hand for one week before automating. Every "hmm, where
+   does this go?" is a missing matrix row - add it.
+4. Automating with an agent: agent proposes routed edits, human approves
+   batches for week one, then spot-checks. The matrix + marks are what make
+   the agent's work reviewable; a definition of done the agent can self-grade
+   (the checklist below) is what makes the delegation safe.
+
+## Run log template
+
+```
+# call-to-memory run - <account> - <datetime>
+marks before: email <ts> | calls <ts> | chat <ts> | calendar <ts>
+items: N new (M processed, K dropped below bar)
+edits: <page>: <one line per edit, with source+date>
+marks after: ...
+flags for human: <legal/security/pricing items, twice-slipped commitments>
+```
+
+## Swappable parameters
+
+- The matrix rows -> your source types (add support tickets, product usage...)
+- Extraction caps: `3/3/2` per item -> tune down for noisy sources
+- Broken-pipe threshold: `7 days` -> your ingestion cadence
+- Destination pages -> your memory schema (pairs with `deal-memory`)

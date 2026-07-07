@@ -1,0 +1,119 @@
+# Weekly Metrics Digest
+
+The weekly report a RevOps analyst would build, with the one thing most
+dashboards lack: a concrete, pre-committed definition of "stalled".
+Sanitized from a production pipeline-health dashboard used by sales leadership.
+
+## The core rule: "at risk" is a threshold, not a feeling
+
+A deal is **at risk** when its time-in-current-stage exceeds that stage's
+threshold. Set thresholds per stage ONCE, from your own history (median
+time-in-stage x 2 is a good start), and stop debating individual deals.
+Example threshold set for a 5-stage pipeline:
+
+| Stage | Stall threshold |
+|---|---|
+| Discovery | 14 days |
+| Technical validation | 21 days |
+| Proposal | 14 days |
+| Negotiation | 10 days |
+| Contract | 7 days |
+
+The thresholds are the product. Gut-feel risk reviews systematically miss the
+quiet deals - nobody's talking about them, which is exactly the risk signal.
+
+## The digest structure (5 tiles, always the same order)
+
+1. **Total pipeline** - count and value of open deals.
+2. **Weighted pipeline** - value x stage probability. Report BOTH totals;
+   weighted-only hides concentration (one whale at 20% looks like five real deals).
+3. **Closing this month / next month** - by close date on the record, not vibes.
+4. **QTD won / lost** - scoreboard with counts, value, and win rate.
+5. **At-risk tab** - every deal past its stage threshold: deal, stage, days in
+   stage, threshold, gap, owner, last activity date. Sorted by gap descending.
+
+## If/then
+
+- If a deal is at-risk AND has no activity in 14+ days -> it's not at-risk,
+  it's dying. Move to a "confirm or kill" list; owner has one week to show a
+  next step with a date or move it to closed-lost.
+- If weighted pipeline moved >15% week-over-week -> name the specific deals
+  that drove it in one line each. A number that jumps without names is noise.
+- If a stage holds 2x more value than adjacent stages -> flag the bulge; that
+  stage is where your process is clogging.
+- If a deal re-enters a stage it already passed -> its stage clock RESETS but
+  gets a "boomerang" tag; two boomerangs = automatic at-risk regardless of clock.
+
+## Escalation
+
+- Any single deal >25% of total pipeline -> concentration flag in tile 1,
+  every week, until it closes either way.
+- At-risk share >30% of pipeline value for 2 consecutive weeks -> that's a
+  process problem, not a deals problem. Escalate to pipeline review, agenda:
+  which stage's threshold is being blown and why.
+
+## Worked example
+
+Monday digest, 31 open deals, $2.4M total / $980K weighted.
+At-risk tab: 6 deals, $610K (25% of pipeline - under the 30% flag).
+Top entry: Acme at Technical validation 38 days (threshold 21, gap +17),
+last activity 16 days ago -> ALSO fails the activity check -> moved to
+confirm-or-kill. Owner produces a scheduled security review for Thursday ->
+stays open, boomerang clock noted. Weighted moved +$140K (+17%) WoW -> named:
+BetaCo advanced to Proposal (+$90K weighted), Gamma expanded scope (+$50K).
+QTD: 7 won / $410K, 5 lost / $260K, win rate 58% by count.
+Digest is 22 lines long. Nobody asks "how's pipeline?" until next Monday.
+
+## Definition of done
+
+- [ ] All 5 tiles present, in order, with numbers not adjectives
+- [ ] Every at-risk deal shows days-in-stage vs threshold and last activity
+- [ ] Any >15% WoW swing in weighted pipeline is explained by named deals
+- [ ] Confirm-or-kill list reviewed: every entry has a dated next step or is closed
+- [ ] Digest fits on one screen (30 lines max)
+
+## Anti-patterns
+
+- **Debating deals instead of thresholds.** If every review re-litigates whether
+  a deal is "really" at risk, you don't have thresholds, you have opinions.
+  Change the threshold if it's wrong - in the table, once, for every deal.
+- **Weighted-only reporting.** Weighted pipeline without total pipeline hides
+  concentration; total without weighted hides quality. The pair is the point.
+- **The growing digest.** Every stakeholder request adds a tile until nobody
+  reads any of them. 5 tiles, 30 lines. New tile in = old tile out.
+- **Resetting boomerang history.** A deal that re-enters a stage with a fresh
+  clock and no tag looks healthy. It isn't - regression is the signal.
+
+## Setting your thresholds (first run, ~45 minutes)
+
+1. Export closed deals from the last 2-4 quarters with stage-entry dates.
+2. Compute median time-in-stage per stage for WON deals only (lost deals
+   inflate medians with their death throes).
+3. Threshold = won-deal median x 2. Round to whole days.
+4. Sanity-check: apply retroactively - the thresholds should have flagged
+   most eventually-lost deals while they were still open. If they flag
+   more than ~40% of your current open pipeline, your stages are too coarse;
+   split the long stage rather than raising its threshold.
+5. Revisit quarterly. Thresholds drift as your motion matures - re-derive
+   from data; never nudge them mid-quarter to make a digest look better.
+
+## Digest template
+
+```
+# Pipeline digest - week of <date>
+1. Pipeline: N deals / $X total  [concentration flag if any deal >25%]
+2. Weighted: $Y  (WoW: +/-$Z, driven by: <named deals, one line each if >15%>)
+3. Closing: this month N/$X - next month N/$X
+4. QTD: won N/$X, lost N/$X, win rate P%
+5. AT RISK (N deals / $X, S% of pipeline):
+   deal | stage | days-in-stage vs threshold | gap | owner | last activity
+   ...sorted by gap desc; confirm-or-kill list at bottom
+```
+
+## Swappable parameters
+
+- Stage thresholds table -> derive from YOUR median time-in-stage x 2
+- Activity staleness: `14 days` -> your sales-cycle tempo
+- Concentration flag: `25%` of pipeline -> your risk tolerance
+- At-risk escalation: `30% for 2 weeks` -> your process-review bar
+- Cadence: weekly Monday -> your operating rhythm

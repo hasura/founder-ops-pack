@@ -1,0 +1,124 @@
+# Cold Email Sequencer
+
+Outbound sequence operations, sanitized from a production outbound engine that
+runs research, sequencing, and reply handling on a 7-job schedule.
+
+## The architecture rule (this is the whole game)
+
+**Your own database is the intelligence layer. The sequencer tool is execution-only.**
+All research, personalization, account context, exclusion logic, and state live
+in YOUR system (a spreadsheet counts). The sequencer receives finished emails
+and a send schedule - nothing else. Teams that put intelligence in the
+sequencer get locked in, can't audit targeting, can't switch tools, and
+can't answer "why did we email this person?" - which is the question that
+matters when a prospect replies angry or a customer gets prospected.
+
+## Seniority tiering
+
+Senior titles (VP+) and mid-level titles get DIFFERENT sequences, not the same
+sequence with a swapped first name:
+
+- **Senior:** 3 touches over 3 weeks. Short (under 90 words), zero feature talk,
+  one business outcome, one credibility marker, soft CTA ("worth a look?").
+- **Mid-level:** 5 touches over 4 weeks. Slightly longer ok, concrete workflow
+  pain, harder CTA (specific time offer) by touch 3.
+
+The tiering rule generalizes: the more senior the prospect, the shorter the
+email, the softer the ask, and the fewer the touches.
+
+## Collision avoidance
+
+Before ANY send, check:
+1. Is this person in an active sequence already? (dedupe by email AND domain+name)
+2. Is anyone at this account in an active sales cycle? -> pause, ask the owner
+3. Is this a customer domain? -> hard exclusion list, checked at send time,
+   not list-build time (deals close mid-sequence)
+4. Did anyone at this account reply negatively in the last 90 days? -> skip
+
+Collisions are rare per-send and catastrophic per-quarter: one "why are you
+cold-emailing our CTO during renewal?" burns more pipeline than a month of
+sequences builds.
+
+## If/then
+
+- If open rate < 40% on a sequence step -> subject line problem; rewrite before
+  scaling volume.
+- If reply rate < 2% after 200 sends -> the LIST is wrong, not the copy.
+  Requalify the segment before touching the template.
+- If a prospect engages (opens 3+, clicks) but doesn't reply -> move to a
+  1-touch "noticed you took a look" branch; do not let them ride the default rail.
+- If ANY reply arrives -> sequence stops instantly. Even "unsubscribe". A human
+  (or your triage skill) takes over - see companion `outbound-reply-triage`.
+
+## Escalation
+
+- Bounce rate > 5% on a batch -> stop the batch, re-verify the list source.
+- A prospect or customer complains -> same-day audit of how they entered the
+  list, written one-line cause, exclusion rule added if the cause was systemic.
+
+## Worked example
+
+120-prospect segment: infra leads at Series B-D companies. Your DB holds
+research per account (stack hints, hiring signals, funding). Tiering splits:
+38 senior (VP+/C-level) -> 3-touch; 82 mid (staff/lead/manager) -> 5-touch.
+Collision pass removes 9: 2 active-deal domains, 3 already-in-sequence,
+4 customer-domain matches. 111 enter. Senior touch 1 (84 words): one
+outcome line ("teams like <similar-co> cut X from Y"), one credibility line,
+"worth a look?". Week 2: senior opens 47%, replies 3 (1 positive, 1 referral-
+down - which OUTPERFORMS cold mid-level outreach, 1 "not now" -> 90-day
+snooze). Mid rail: open 51%, reply 2.4% - above the 2% floor, rides on.
+Engaged-no-reply branch catches 6. All state written back to YOUR db;
+the sequencer knows nothing but send times.
+
+## Definition of done
+
+- [ ] All targeting/personalization state lives in your DB, exportable
+- [ ] Every prospect tiered; no senior title on the mid rail
+- [ ] Collision check ran at SEND time with all 4 gates
+- [ ] Reply -> instant stop verified working (test with a seed address)
+- [ ] Every send answerable: "why this person, why now" in one query
+
+## Anti-patterns
+
+- **Intelligence in the sequencer.** Custom fields, exclusion logic, and
+  research notes living in the sequencing tool = unauditable targeting and
+  vendor lock-in. The day you switch tools you lose your memory of who was
+  contacted, when, and why - which is the compounding asset.
+- **One sequence, name-swapped.** "Hi {first_name}" personalization at VP level
+  reads as what it is. If you can't write a different email for a different
+  seniority, you haven't understood why either would reply.
+- **Scaling on a sub-2% reply rate.** Volume multiplies list quality, including
+  when it's bad. 3x sends on a broken segment = 3x the burned domain reputation.
+- **List-build-time exclusion checks.** The list was clean when built; the
+  customer signed last Tuesday; the sequence emailed their CTO on Thursday.
+  Send-time checks or it didn't happen.
+
+## Setup (first run, ~1 hour)
+
+1. Stand up the intelligence layer: a table with prospect, account, tier,
+   research notes, sequence state, exclusion flags, reply history. A
+   spreadsheet is fine; owning it is what matters.
+2. Write the exclusion sources: customer domains (from your CRM, auto-synced
+   or weekly-refreshed), active-deal domains, 90-day negative list.
+3. Write the senior and mid sequences (3-touch and 5-touch). Read each aloud;
+   anything you wouldn't say to the person's face gets cut.
+4. Send to 20 prospects manually before automating - manual sends surface
+   the collision cases your checks must catch.
+5. Wire reply-stop FIRST, volume second. An outbound system without a working
+   kill switch is a complaint generator with a schedule.
+
+## The 7-job schedule (production reference)
+
+The system this is sanitized from runs as scheduled jobs, roughly: (1) list
+refresh + exclusion sync, (2) research enrichment, (3) tiering + sequence
+assignment, (4) send execution, (5) reply capture (see `outbound-reply-triage`),
+(6) engaged-no-reply branching, (7) weekly state reconciliation. You don't
+need seven jobs on day one - you need the SEPARATION: research, targeting,
+execution, and capture as distinct steps with your DB as the only shared state.
+
+## Swappable parameters
+
+- Touch counts: senior `3/3wk`, mid `5/4wk` -> your motion
+- Floors: `40%` open, `2%` reply, `5%` bounce -> your baseline
+- Negative-reply cooloff: `90 days` -> your market's memory
+- Snooze: "not now" = `90 days` -> your cycle
