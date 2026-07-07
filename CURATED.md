@@ -10,6 +10,8 @@ Skills we rate but can't vendor — license doesn't permit redistribution, or th
 - **getaero-io/gtm-eng-skills** — https://github.com/getaero-io/gtm-eng-skills — MIT but requires paid Deepline account. TAM building, waterfall enrichment.
 - **deanpeters/Product-Manager-Skills** — https://github.com/deanpeters/Product-Manager-Skills — CC BY-NC-SA (non-commercial). 55 PM skills with strong worked examples.
 - **aapersh/strategy-skills-for-claude** — https://github.com/aapersh/strategy-skills-for-claude — No explicit license. 21 consulting-strategy skills.
+- **chadboyda/agent-gtm-skills** — https://github.com/chadboyda/agent-gtm-skills — No license file. 18 GTM skills with real numbers (AI pricing w/ GitHub Copilot / Intercom Fin examples, margin roadmaps).
+- **Stevekaplanai/pitch-deck-mastery-skill** — https://github.com/Stevekaplanai/pitch-deck-mastery-skill — No license file. 12-slide investor pitch framework with stage-appropriate guidance.
 
 ## Big Collections (MIT/Permissive — Better Consumed Whole at Source)
 
