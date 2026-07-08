@@ -1,6 +1,6 @@
 # Founder Ops Pack
 
-**26 skills and 6 agents in the repo today, written from systems we run
+**26 skills and 12 agents in the repo today, written from systems we run
 daily. 13 curated community skills, vendored with attribution. Growing to
 44 skills and 12 agents.**
 
@@ -16,9 +16,9 @@ and any tool that reads the Agent Skills format. ChatGPT users: `chatgpt/`
 has a paste-ready text twin of every skill. Install steps for every tool:
 [INSTALL.md](INSTALL.md).
 
-> **Status:** 26 of 44 skills and 6 of 12 agents are in the repo today.
-> Everything in the index below ships. If it isn't in `skills/` or
-> `agents/` yet, it's days away. Watch the repo.
+> **Status:** 26 of 44 skills and 12 of 12 agents are in the repo today.
+> Everything in the index below ships. If it isn't in `skills/` yet,
+> it's days away. Watch the repo.
 
 ## What this replaces
 
@@ -100,12 +100,12 @@ itself against.
 | `customer-success-manager` | CSM monitoring loop: health, lifecycle plays, churn signals | `engagement-health-classifier`, `lifecycle-email-orchestrator` |
 | `fractional-cfo-lite` | Fractional CFO core: the close + the runway model ($8K-$22K/mo) | `monthly-close-runbook`, `runway-scenario-model` |
 | `revops-analyst` | RevOps analyst: deal memory, pipeline hygiene, the Friday digest | `deal-memory`, `call-to-memory`, `account-page-maintainer`, `weekly-metrics-digest` |
-
-**Coming:**
-
-meeting-copilot, deal-memory-keeper, metric-librarian, board-prep-partner, product-ops-analyst, people-ops-partner
-
-If it isn't in agents/ yet, it's days away.
+| `meeting-copilot` | Meeting copilot: prep before, capture after, keep the commitment list current | `meeting-prep-brief`, `call-to-memory` |
+| `deal-memory-keeper` | Deal memory keeper: one account page per deal, MEDDPICC graded weekly | `deal-memory`, `account-page-maintainer` |
+| `metric-librarian` | Metric librarian: one definition per metric, resolve collisions, defined-metrics-only digest | `metric-dictionary`, `weekly-metrics-digest` |
+| `board-prep-partner` | Board prep: T-minus schedule, data freeze from closed numbers, change log | `weekly-metrics-digest`, `runway-scenario-model`, `metric-dictionary` |
+| `product-ops-analyst` | Product ops: customer signal to counted patterns, verbatim quotes, health on a cycle | `channel-signal-digest`, `voice-of-customer-synthesizer`, `engagement-health-classifier` |
+| `people-ops-partner` | People ops: 30/60/90 with named outcomes, written handoff briefs, 1:1 rhythms | `delegation-brief` |
 
 ## Start here, by role
 

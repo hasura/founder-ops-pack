@@ -25,7 +25,9 @@ Each skill is a folder under `skills/`. Copy the folders for the tool you use:
 - Agents install as saved programs. In a thread, upload the agent playbook
   from `agents/` and ask the agent to save it as a saved program named
   after the agent (for example `fractional_cfo_lite`). Invoke it from any
-  thread by name, or put it on a schedule.
+  thread by name, or put it on a schedule. If the agent needs a task or
+  inputs, create a named text artifact in the thread first (the program's
+  README names it) and the program reads it on run.
 
 ## Gemini CLI, GitHub Copilot / VS Code, others
 - These read the Agent Skills standard; check your tool's skills directory
