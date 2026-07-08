@@ -5,11 +5,11 @@ daily. 13 curated community skills, vendored with attribution. Growing to
 44 skills and 12 agents through launch week.**
 
 Most skill packs ship hundreds of bulk-generated entries. We wrote ours by
-sanitizing systems we run in production at a venture-backed software
-company. The close runbook is our close runbook. The task reconciler is the
-one that runs every morning. Nothing here was generated from scratch. Each
-skill keeps the specific numbers, thresholds, and escalation rules of the
-original. Swap them for your own.
+sanitizing systems we run in production at Hasura. The close runbook is our
+close runbook. The task reconciler is the one that runs every morning.
+Nothing here was generated from scratch. Each skill keeps the specific
+numbers, thresholds, and escalation rules of the original. Swap them for
+your own.
 
 Works in Claude Code, Codex, Cursor, PromptQL, Gemini CLI, GitHub Copilot,
 and any tool that reads the Agent Skills format. ChatGPT users: `chatgpt/`
