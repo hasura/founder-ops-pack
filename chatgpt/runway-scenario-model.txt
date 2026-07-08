@@ -1,0 +1,84 @@
+# Runway Scenario Model
+
+Fractional-CFO-grade scenario planning: one model, three scenarios, and
+action triggers you commit to BEFORE you need them.
+
+## The single-model principle
+
+There is exactly ONE runway model. Base, bear, and bull are parameter sets
+on the same model — never three files. When someone asks "what does the
+bear case say," the answer comes from flipping one column, not opening a
+different spreadsheet that has drifted. If you find two runway models,
+the first task is always to merge them and delete one.
+
+## The three scenarios
+
+| Scenario | Revenue assumption | Cost assumption |
+|---|---|---|
+| Base | Current trajectory: trailing-3-month growth rate carried forward | Committed costs + hiring plan as approved |
+| Bear | New revenue at 50% of base; churn at 1.5x trailing rate | Committed costs only; hiring plan frozen |
+| Bull | Base revenue + signed-but-unstarted contracts landing on time | Base costs + the next 2 deferred hires pulled forward |
+
+The percentages (50%, 1.5x) are swappable defaults from real operating
+experience. The structure is not: bear must haircut NEW revenue harder than
+existing, and bull may only add revenue that has a signature behind it —
+pipeline is never bull-case revenue.
+
+## Inputs (refresh monthly, after the close)
+
+1. Cash balance — from the closed month's bank reconciliation, not the live
+   bank feed (mid-month balances lie: they miss payroll accrual timing).
+2. Committed monthly costs — payroll (fully loaded, +18% on base for taxes
+   and benefits as the default loading factor), rent, committed SaaS/infra.
+3. Variable costs as a % of revenue.
+4. Revenue actuals — trailing 6 months from the closed books.
+
+## Pre-committed triggers (the part most founders skip)
+
+Each scenario carries an if/then trigger decided when the model is BUILT,
+not when the trigger fires. Deciding under pressure is how runway dies.
+
+| Trigger condition | Pre-committed action |
+|---|---|
+| Base-case runway < 12 months | Start fundraise prep (deck, data room) NOW |
+| Bear-case runway < 9 months | Freeze hiring; cut variable spend 20% |
+| Bear-case runway < 6 months | Execute the reduction plan within 30 days |
+| Any single month burn > 115% of modeled burn | Same-week variance review, written cause |
+
+Escalation: the first time a trigger fires, it goes to the founder/CEO in
+writing the same day — never batched into the monthly review.
+
+## Worked example (real math)
+
+Cash at close: $2,400,000. Committed monthly costs: $310,000. Variable
+costs: 12% of revenue. Revenue: $140,000/mo, trailing-3-month growth 4%/mo,
+churn 1.2%/mo.
+
+- Base: net burn month 1 = $310,000 + $16,800 − $140,000 = $186,800;
+  revenue compounds at +4%/mo → runway ≈ 14.1 months. No trigger fires
+  (14.1 > 12... barely — note it: one bad month flips this).
+- Bear: new revenue halved (growth 2%/mo), churn 1.8%/mo → net growth
+  ≈ +0.2%/mo, effectively flat revenue → net burn ≈ $186,800 flat →
+  runway ≈ 12.8 months. Bear > 9, no freeze — but the model says the
+  NEXT quarterly refresh is where the 9-month bear trigger likely fires:
+  put fundraise-prep on the calendar now.
+- When the month closes and cash comes in at $2,380,000 instead of
+  $2,393,200 (burn 107% of model): under 115%, no escalation — but update
+  ALL affected fields together: cash, actual burn, revised runway, and the
+  trigger-distance table. Never update the cash cell alone; a model where
+  one field moved is worse than a stale model, because it looks fresh.
+
+## Validation (definition of done)
+
+- [ ] Exactly one model file exists; scenarios are columns/parameters, not copies
+- [ ] All four inputs refreshed from CLOSED books, dated with the close month
+- [ ] All three scenarios produce a runway number in months
+- [ ] Every trigger row has a condition AND a pre-committed action
+- [ ] Distance-to-nearest-trigger stated for each scenario
+- [ ] Any update touched all affected fields together (cash, burn, runway, trigger distances)
+
+## Adapting this to your company
+
+Swap: the loading factor (18%), haircut percentages, trigger thresholds
+(12/9/6 months), and the variance band (115%). Keep: single model,
+signed-revenue-only bull, pre-committed triggers, same-day escalation.

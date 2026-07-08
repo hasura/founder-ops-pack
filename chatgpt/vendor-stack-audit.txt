@@ -1,0 +1,82 @@
+# Vendor Stack Audit
+
+The renewal calendar and seat-utilization discipline that recovers 10–30%
+of SaaS spend — run quarterly, negotiated on schedule, never at the
+auto-renew deadline.
+
+## The one-table inventory
+
+One row per vendor contract (not per vendor — a vendor with two contracts
+gets two rows):
+
+| Field | Rule |
+|---|---|
+| Vendor / product | Canonical name, one spelling |
+| Owner | A person, never a team. No owner = flag for cut by default |
+| Annual cost | Normalize everything to annual, even monthly plans |
+| Renewal date | From the contract, not memory |
+| Auto-renew? | Y/N + required notice period in days |
+| Seats paid / seats active | Active = logged in within 30 days |
+| Category | So duplicates surface (two "product analytics" rows = a finding) |
+
+## The 90/60/30 negotiation windows
+
+Work backward from each renewal date. Each window has one job:
+
+- **T−90 days:** Decide keep / cut / renegotiate. Pull seat utilization and
+  the owner's one-line justification. If notice period > 30 days, the cut
+  decision must be executed inside this window.
+- **T−60 days:** For renegotiations: get a competing quote or a
+  usage-based counterproposal on the table. Leverage exists only while
+  the incumbent believes you can leave.
+- **T−30 days:** Sign or send notice. Nothing new starts here — this
+  window is for execution only. Anything still undecided at T−30
+  auto-escalates to the budget owner in writing, same day.
+
+If/then rules:
+- If seats active / seats paid < 70% → renegotiate seat count at renewal (floor: active + 10% headroom).
+- If seats active / seats paid < 40% → treat as cut-candidate; owner must justify in writing to keep.
+- If two rows share a category → consolidation review before either renews.
+- If a vendor auto-renewed without a T−90 decision on record → process failure; log it and fix the calendar, not just the contract.
+
+## Worked example (real math)
+
+Row: "Acme Analytics — owner: J. Doe — $42,000/yr — renews Oct 1 —
+auto-renew Y, 60-day notice — 50 seats paid / 18 active — category:
+product analytics."
+
+- Utilization = 18/50 = 36% → under 40% → cut-candidate.
+- Notice period 60 days > 30 → the cut must be executed by T−90
+  (July 3), not T−30.
+- Second row exists in "product analytics" ($9,600/yr, 92% utilization)
+  → consolidation review: keep the second, cut Acme.
+- Executing the cut: update ALL affected fields together — the Acme row
+  moves to a "terminated" state with notice-sent date, the annual-spend
+  total drops by $42,000, the category no longer shows a duplicate, and
+  the recovered-spend ledger gains a $42,000 line. A row deleted without
+  the ledger entry makes the audit's ROI invisible.
+- Recovered so far: $42,000 on a $180,000 stack = 23.3% — inside the
+  typical 10–30% band.
+
+## Quarterly cadence
+
+Refresh the full table once a quarter; run the 90/60/30 windows weekly
+against the calendar. The quarterly refresh re-pulls seat activity for
+every row — utilization numbers older than 90 days are treated as unknown,
+not as their last value.
+
+## Validation (definition of done)
+
+- [ ] Every contract has a row; every row has an owner and a renewal date from the contract
+- [ ] Every renewal inside the next 90 days has a keep/cut/renegotiate decision on record
+- [ ] No auto-renew fired without a T−90 decision this quarter
+- [ ] Utilization data is < 90 days old for every row
+- [ ] Recovered-spend ledger updated for every cut/renegotiation (with all affected fields)
+- [ ] Duplicate categories have a consolidation decision, not just a flag
+
+## Adapting this to your company
+
+Swap: the utilization thresholds (70%/40%), headroom (10%), window
+offsets (90/60/30), and the 30-day "active" definition. Keep: one row per
+contract, named owners, decisions before the notice deadline, and the
+recovered-spend ledger.
