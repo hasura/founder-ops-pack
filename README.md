@@ -2,7 +2,7 @@
 
 **26 skills and 6 agents in the repo today, written from systems we run
 daily. 13 curated community skills, vendored with attribution. Growing to
-44 skills and 12 agents through launch week.**
+44 skills and 12 agents.**
 
 Most skill packs ship hundreds of bulk-generated entries. We wrote ours by
 sanitizing systems we run in production at Hasura. The close runbook is our
@@ -16,9 +16,9 @@ and any tool that reads the Agent Skills format. ChatGPT users: `chatgpt/`
 has a paste-ready text twin of every skill. Install steps for every tool:
 [INSTALL.md](INSTALL.md).
 
-> **Status:** 26 of 44 skills and 6 of 12 agents are in the repo today. The
-> rest land in waves through launch week. Everything in the index below
-> ships. If it isn't in `skills/` yet, it's days away. Watch the repo.
+> **Status:** 26 of 44 skills and 6 of 12 agents are in the repo today.
+> Everything in the index below ships. If it isn't in `skills/` or
+> `agents/` yet, it's days away. Watch the repo.
 
 ## What this replaces
 
@@ -72,29 +72,17 @@ natural). **M** = standard (80-120 lines, full quality bar). **S** = utility
 | `decision-driven-dataviz` | Chart-junk dashboards nobody acts on | Anyone reporting numbers | M | ours (production) |
 | `runway-scenario-model` | Fractional-CFO scenario planning: base/bear/bull + pre-committed triggers | Founder, finance | M | ours (production) |
 | `vendor-stack-audit` | SaaS renewal calendar, 90/60/30 windows, seat-waste recovery | Founder, ops, finance | M | ours (production) |
-| `decision-memo` | Structured decisions: options, reversibility class, decide-by date | Founder, exec | M | ours (production) |
-| `sop-runbook-writer` | Process documentation that stays alive (last-verified dates) | Ops | M | ours (production) |
-| `investor-update-writer` | Investor-update ghostwriting (consistent MoM table, lowlights first) | Founder | M | ours (production) |
-| `board-meeting-pack` | Board prep: 72h pre-read rule, narrative-first, decision log | Founder | M | ours (production) |
-| `fundraise-pipeline` | Fundraise CRM discipline: stages, pass-reason taxonomy, parallel-not-serial | Founder | M | ours (production) |
-| `okr-quarterly-planning` | Quarterly planning: KR quality bar, 3-objective cap | Founder, exec | M | ours (production) |
-| `interview-debrief-scorecard` | Structured debriefs: confirmed evidence vs vibes, independent scoring | Hiring managers | M | ours (production) |
-| `prd-one-pager` | Problem-first specs with mandatory non-goals | Product | M | ours (production) |
-| `case-study-extractor` | Transcript-to-case-study drafting with a quote-integrity rule | Marketing, GTM | M | ours (production) |
 | `delegation-brief` | Handoffs (to humans or AI agents) that don't boomerang | Everyone | S | ours (production) |
 | **Personal ops** (organize and prepare, never advise) |
 | `personal-monthly-close` | Personal-finance chaos | Everyone | S | ours (production) |
 | `tax-doc-organizer` | Shoebox of receipts in April | Everyone | S | ours (production) |
 | `doctor-visit-prep` | Forgetting your symptoms in the exam room | Everyone | S | ours (production) |
-| `inbox-triage` | 4-decision inbox discipline + a waiting-on ledger | Everyone | S | ours (production) |
-| `crisp-status-update` | Status updates people actually read: headline first, asks before context | Everyone | S | ours (production) |
-| `weekly-review-reset` | The weekly review, timed so you trust the output | Everyone | S | ours (production) |
-| `feedback-sbi` | Situation-Behavior-Impact feedback | Managers | S | ours (production) |
-| `1on1-operating-system` | 1:1s with memory | Managers | S | ours (production) |
-| `new-hire-30-60-90` | Onboarding plans with checkable milestones | Managers | S | ours (production) |
-| `bug-sev-triage` | Severity x frequency matrix with an SLA per severity | Product / eng | S | ours (production) |
-| `contract-first-pass` | Contract read-through checklist. Prep for counsel, not legal advice | Founder, ops | S | ours (production) |
-| `crm-hygiene` | Required fields and stage-exit criteria | Sales / GTM | S | ours (production) |
+
+**Coming:**
+
+decision-memo, sop-runbook-writer, investor-update-writer, board-meeting-pack, fundraise-pipeline, okr-quarterly-planning, interview-debrief-scorecard, prd-one-pager, case-study-extractor, inbox-triage, crisp-status-update, weekly-review-reset, feedback-sbi, 1on1-operating-system, new-hire-30-60-90, bug-sev-triage, contract-first-pass, crm-hygiene
+
+If it isn't in skills/ yet, it's days away.
 
 ### Agents
 
@@ -113,33 +101,23 @@ itself against.
 | `fractional-cfo-lite` | Fractional CFO core: the close + the runway model ($8K-$22K/mo) | `monthly-close-runbook`, `runway-scenario-model` |
 | `revops-analyst` | RevOps analyst: deal memory, pipeline hygiene, the Friday digest | `deal-memory`, `call-to-memory`, `account-page-maintainer`, `weekly-metrics-digest` |
 
-**Coming (shipping in waves through launch week):**
+**Coming:**
 
-- `meeting-copilot`: prep, notes, follow-ups, and memory for every meeting
-- `deal-memory-keeper`: every call and email lands in deal memory
-- `metric-librarian`: owns the metric dictionary and arbitrates number disputes
-- `board-prep-partner`: board pack assembly and the running decision log
-- `product-ops-analyst`: bug triage, spec hygiene, ship-week operations
-- `people-ops-partner`: debriefs, feedback, 1:1s, 30-60-90s
+meeting-copilot, deal-memory-keeper, metric-librarian, board-prep-partner, product-ops-analyst, people-ops-partner
+
+If it isn't in agents/ yet, it's days away.
 
 ## Start here, by role
 
-- **Founder** → `todo-reconciler`, `decision-memo`, `metric-dictionary`,
-  `investor-update-writer`.
+- **Founder** → `todo-reconciler`, `metric-dictionary`.
 - **Team of one (founder, consultant, chief of staff)** → `todo-reconciler`
-  (start here), `meeting-prep-brief`, `inbox-triage`,
-  `channel-signal-digest`, `lifecycle-email-orchestrator`.
+  (start here), `meeting-prep-brief`, `channel-signal-digest`,
+  `lifecycle-email-orchestrator`.
 - **Sales / GTM** → `deal-memory` + `call-to-memory`, then
-  `cold-email-sequencer` + `outbound-reply-triage`, kept honest by
-  `crm-hygiene`.
+  `cold-email-sequencer` + `outbound-reply-triage`.
 - **Finance** → `monthly-close-runbook`, then `runway-scenario-model` and `vendor-stack-audit`.
 - **Customer success** → `engagement-health-classifier` +
-  `lifecycle-email-orchestrator` (mind the send-ledger rule),
-  `case-study-extractor`.
-- **Product / ops** → `prd-one-pager`, `bug-sev-triage`,
-  `sop-runbook-writer`.
-- **People** → `interview-debrief-scorecard`, `feedback-sbi`,
-  `1on1-operating-system`, `new-hire-30-60-90`.
+  `lifecycle-email-orchestrator` (mind the send-ledger rule).
 
 ## Curated collection
 
