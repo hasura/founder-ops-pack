@@ -45,6 +45,18 @@ The discipline: **an entry is written within a week of the decision, by
 someone who was in the room.** A decision log reconstructed later is
 historical fiction — better than nothing, but label it as such.
 
+**Disputed decisions get an arbiter, not a debate thread.** Every
+decision-log entry names one owner (the person who was in the room and
+wrote it down). When a recorded decision is disputed — someone believes
+the WHY no longer holds, or that it never did — the entry's owner
+arbitrates: they hear the challenge, check it against the recorded
+constraints and the "expires when" condition, and either uphold the entry
+or write the reversal as a new entry. If the owner has left, the current
+area owner inherits the entry. One named arbiter per entry is what keeps
+a disputed decision from becoming a recurring meeting; this is the same
+rule that keeps a metric dictionary from having two definitions of
+revenue.
+
 ## Worked example
 
 A new engineer proposes moving job scheduling from a cron table to a
@@ -66,6 +78,9 @@ re-making the move at 1K jobs/day, when the original WHY still held.
   an owner (over 5).
 - Decision log: append-only, one owner per entry, written within a week.
   Reversals get a NEW entry referencing the old one — never edit history.
+  Disputes route to the entry's owner for arbitration (see above); the
+  outcome is either "upheld, here's why the constraints still hold" or a
+  new reversal entry — never an unrecorded compromise.
 - Quarterly, scan decision-log entries whose "expires when" conditions
   reference numbers you now exceed. Each hit is a scheduled revisit, not
   an automatic reversal.
@@ -86,6 +101,9 @@ coding agent reads, Claude Project knowledge, Notion, any harness.
 - Decision log entries all have the three fields; >80% written within a
   week of the decision; every entry has an "expires when", even if it's
   "probably never — record why".
+- Every decision-log entry has a named owner who is still at the company
+  (or an explicit inheritor); any dispute in the last quarter ended in an
+  upheld note or a new entry, not an unresolved thread.
 - The decision-log test: hand a new hire your three most-questioned
   decisions. If the log answers "why is it built this way?" without a
   meeting, it's working.
