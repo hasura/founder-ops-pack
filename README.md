@@ -1,8 +1,7 @@
 # Founder Ops Pack
 
-**26 skills and 12 agents in the repo today, written from systems we run
-daily. 13 curated community skills, vendored with attribution. Growing to
-44 skills and 12 agents.**
+**44 skills and 12 agents in the repo today, written from systems we run
+daily. 13 curated community skills, vendored with attribution.**
 
 Most skill packs ship hundreds of bulk-generated entries. We wrote ours by
 sanitizing systems we run in production at Hasura. The close runbook is our
@@ -16,9 +15,8 @@ and any tool that reads the Agent Skills format. ChatGPT users: `chatgpt/`
 has a paste-ready text twin of every skill. Install steps for every tool:
 [INSTALL.md](INSTALL.md).
 
-> **Status:** 26 of 44 skills and 12 of 12 agents are in the repo today.
-> Everything in the index below ships. If it isn't in `skills/` yet,
-> it's days away. Watch the repo.
+> **Status:** 44 of 44 skills and 12 of 12 agents are in the repo.
+> The pack is complete. Watch the repo for fixes and curated additions.
 
 ## What this replaces
 
@@ -72,17 +70,29 @@ natural). **M** = standard (80-120 lines, full quality bar). **S** = utility
 | `decision-driven-dataviz` | Chart-junk dashboards nobody acts on | Anyone reporting numbers | M | ours (production) |
 | `runway-scenario-model` | Fractional-CFO scenario planning: base/bear/bull + pre-committed triggers | Founder, finance | M | ours (production) |
 | `vendor-stack-audit` | SaaS renewal calendar, 90/60/30 windows, seat-waste recovery | Founder, ops, finance | M | ours (production) |
+| `decision-memo` | One page, one owner, one date, with owner arbitration | Everyone | M | ours (production) |
+| `investor-update-writer` | The monthly update as a view of one financial model | Founder | M | ours (production) |
+| `board-meeting-pack` | Board prep on a T-minus schedule with a data freeze | Founder, finance | M | ours (production) |
+| `fundraise-pipeline` | The raise run as a pipeline with time-in-stage stall flags | Founder | M | ours (production) |
+| `crm-hygiene` | The weekly sweep that keeps the forecast true | Sales / GTM, RevOps | M | ours (production) |
+| `case-study-extractor` | Case studies assembled from verbatim, account-weighted evidence | Marketing, GTM | M | ours (production) |
+| `contract-first-pass` | Contract triage that preps counsel questions, never legal advice | Founder, ops | M | ours (production) |
+| `sop-runbook-writer` | Runbooks with prep/finalize gates and per-step verification | Ops, finance | M | ours (production) |
+| `okr-quarterly-planning` | 3x3 OKRs on dictionary-defined metrics with owner arbitration | Founder, managers | M | ours (production) |
+| `interview-debrief-scorecard` | Evidence-graded debriefs against a preset bar | Hiring managers | M | ours (production) |
+| `1on1-operating-system` | 1:1s on a shared doc with a reconciled action list | Managers | M | ours (production) |
+| `prd-one-pager` | One-page PRDs with pre-registered success metrics | Product | M | ours (production) |
 | `delegation-brief` | Handoffs (to humans or AI agents) that don't boomerang | Everyone | S | ours (production) |
+| `inbox-triage` | Two timed passes, four moves, an exclusion list | Everyone | S | ours (production) |
+| `crisp-status-update` | Five-line updates with defined state colors | Everyone | S | ours (production) |
+| `weekly-review-reset` | The weekly reconcile that keeps the task list believed | Everyone | S | ours (production) |
+| `feedback-sbi` | Feedback as situation, verbatim behavior, impact | Managers | S | ours (production) |
+| `new-hire-30-60-90` | Onboarding plans with strike-through accounting | Managers | S | ours (production) |
+| `bug-sev-triage` | Definition-decided severity with an out-of-scope list | Product, eng | S | ours (production) |
 | **Personal ops** (organize and prepare, never advise) |
 | `personal-monthly-close` | Personal-finance chaos | Everyone | S | ours (production) |
 | `tax-doc-organizer` | Shoebox of receipts in April | Everyone | S | ours (production) |
 | `doctor-visit-prep` | Forgetting your symptoms in the exam room | Everyone | S | ours (production) |
-
-**Coming:**
-
-decision-memo, sop-runbook-writer, investor-update-writer, board-meeting-pack, fundraise-pipeline, okr-quarterly-planning, interview-debrief-scorecard, prd-one-pager, case-study-extractor, inbox-triage, crisp-status-update, weekly-review-reset, feedback-sbi, 1on1-operating-system, new-hire-30-60-90, bug-sev-triage, contract-first-pass, crm-hygiene
-
-If it isn't in skills/ yet, it's days away.
 
 ### Agents
 
