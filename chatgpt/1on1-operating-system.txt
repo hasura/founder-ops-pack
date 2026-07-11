@@ -1,0 +1,73 @@
+# 1:1 Operating System
+
+The 1:1 is the report's meeting, run on one shared document that
+remembers what both of you agreed. Status lives in status updates; this
+meeting is for what is hard to write down.
+
+## The shared document
+
+One running doc per person, appended weekly, never reset:
+
+| Section | Rule |
+|---|---|
+| Their agenda | First, always. Added before the meeting |
+| Your agenda | Second. If it is a status question, cut it and read the status update instead |
+| Action items | Owner and date each. Reconciled at open, not appended |
+| Decisions | One line each, dated. This section settles "wait, what did we agree" |
+| Parking lot | Career, comp, growth topics that need scheduled depth, each with a date it gets its own session |
+
+## The reconcile-at-open rule
+
+First 3 minutes: walk last week's action items against reality, not
+memory. Many resolved out-of-band in threads and hallway decisions;
+close them with a source note. What did not resolve gets a new date or
+gets dismissed with a reason. An action list that only grows becomes a
+guilt list, and guilt lists stop being read.
+
+## If/then rules
+
+- If their agenda is empty 2 weeks running → that is the agenda. Ask
+  what is making the meeting not worth preparing for.
+- If an action item survives 3 reconciles → it is misassigned or fake;
+  reassign it or dismiss it out loud, not silently.
+- If a topic recurs 3 weeks without resolution → it graduates to the
+  parking lot with a scheduled deep-dive date. Recurring topics are
+  drowning in the weekly slot.
+- If the meeting becomes status 2 weeks running → shrink it to 15
+  minutes and move status to writing until the agenda recovers.
+
+## Worked example (real math)
+
+Week 12 with a senior engineer. Reconcile-at-open: 5 open items. Two
+resolved out-of-band (the migration doc shipped Tuesday; the vendor call
+happened, noted from the thread), closed with source notes. One survives
+its third reconcile: "draft the on-call proposal", stalled 3 weeks.
+Dismissed out loud, and dismissing it means updating ALL affected fields
+together: the item is struck with a reason ("blocked on the platform
+decision"), a successor item lands on the DECISIONS owner ("make the
+platform call by Aug 2"), and the parking lot gains the on-call topic
+pinned to the Aug 5 session. Their agenda: a conflict with a peer lead,
+which takes 20 of the 30 minutes. Decisions section gains one dated
+line. The doc now answers what 12 weeks of memory cannot.
+
+## Escalation
+
+Parking-lot topics that miss their scheduled date twice escalate to a
+dedicated calendar hold booked in the meeting itself. Comp and role
+conversations always get their own session; folding them into a weekly
+slot signals they matter as much as the weekly slot.
+
+## Validation (definition of done)
+
+- [ ] One running doc, their agenda captured before the meeting
+- [ ] Action items reconciled at open with source notes, not appended
+- [ ] No item alive past 3 reconciles without reassignment or spoken dismissal
+- [ ] Decisions section gained its dated lines
+- [ ] Parking-lot topics carry scheduled dates
+- [ ] Status content pushed to writing, not spoken
+
+## Adapting this to your company
+
+Swap: cadence, the 3-reconcile bar, section names. Keep: their agenda
+first, reconcile-at-open with sources, dated decisions, and the parking
+lot with dates.
