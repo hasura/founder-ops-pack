@@ -1,0 +1,91 @@
+---
+name: board-meeting-pack
+description: >
+  Assemble the board meeting pack on a T-minus schedule: outline at T-14,
+  data freeze at T-7, pack sent at T-3. Use when the user asks to prepare
+  a board meeting, build a board deck or pack, or asks "what do I send the
+  board and when". Numbers freeze from closed months; late changes go in a
+  change log, never silently.
+license: MIT
+metadata:
+  version: "1.0"
+  tier: M
+  provenance: sanitized from the board prep practice of a venture-backed software company
+---
+
+# Board Meeting Pack
+
+A board meeting is three documents and a calendar, not a deck-building
+sprint the night before. The pack exists so the meeting can be spent on
+the 2-3 decisions, not on reading numbers aloud.
+
+## The T-minus schedule
+
+| Date | Gate | Rule |
+|---|---|---|
+| T-14 | Outline locked | Sections, owners per section, and the decision list. No content yet |
+| T-7 | Data freeze | Every number pulled from the closed model. After this, numbers change only via the change log |
+| T-3 | Pack sent | Board members get 3 full days. A pack sent at T-1 will not be read |
+| T-0 | Meeting | 70% of time on decisions, 30% on review. Not the reverse |
+
+## Pack contents, in order
+
+1. **One-page summary.** The quarter in numbers plus the decision list.
+2. **The fixed KPI table.** Same metrics as the investor update, same
+   definitions, quarter view.
+3. **Financials.** P&L, cash, runway, pulled from the model at freeze.
+4. **Decision memos.** One page per decision needing board input, each
+   with options, costs, and a recommendation (see decision-memo skill).
+5. **Appendix.** Everything else. If it needs discussion it is not appendix.
+
+## If/then rules
+
+- If a number must change after T-7 → it enters through the change log:
+  old value, new value, reason, date. The pack body is never edited in
+  place after freeze.
+- If a section owner misses T-14 → the section ships as "no update since
+  last quarter" rather than slipping the outline. The schedule outranks
+  completeness.
+- If a decision lands on the agenda after T-7 → it goes to the next
+  meeting or to an async vote with its own memo. Late decisions ambush
+  boards, and ambushed boards say no.
+- If the meeting spent under half its time on decisions → the next pack
+  cuts review pages by a third. The pack is failing at its one job.
+
+## Worked example (real math)
+
+Meeting May 28. T-14 is May 14, T-7 is May 21, T-3 is May 25.
+
+- May 14: outline locked. 5 sections, 2 decisions: raise a $1.5M bridge,
+  approve the new pricing tier.
+- May 21: freeze. April close numbers: ARR $1,420,000, burn $205,000/mo,
+  cash $2,300,000, runway 11.2 months.
+- May 23: finance finds a $30,000 misbooked invoice. April cash is
+  actually $2,270,000, runway 11.1 months. The fix lands as a change-log
+  line, and updating it means updating ALL affected fields together: the
+  cash figure, the runway line, the bridge memo's "months remaining"
+  argument, and the one-page summary. A pack where the summary says 11.2
+  and the memo says 11.1 spends ten board minutes on reconciliation.
+- May 25: pack out, 11 pages plus appendix. Both decisions carry a
+  one-page memo with a recommendation.
+
+## Escalation
+
+If the CEO wants to edit numbers after freeze without a change-log line,
+the pack owner pushes back once, in writing. If overruled, the change-log
+line appears anyway, authored by the pack owner. The log is not optional.
+
+## Validation (definition of done)
+
+- [ ] Outline locked by T-14 with named section owners and the decision list
+- [ ] Every number pulled from closed months at T-7, sources noted
+- [ ] All post-freeze changes appear in the change log with old value, new value, reason
+- [ ] Every decision has a one-page memo with costed options and a recommendation
+- [ ] Pack sent by T-3
+- [ ] Post-meeting: decisions recorded with owners, minutes note who dissented
+
+## Adapting this to your company
+
+Swap: the 14/7/3 offsets, the 70/30 decision-to-review split. Keep: an
+outline gate before content, a hard data freeze, the change log, and
+decision memos as the meeting's spine.
