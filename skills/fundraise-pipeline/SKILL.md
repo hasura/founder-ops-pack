@@ -1,0 +1,91 @@
+---
+name: fundraise-pipeline
+description: >
+  Run a fundraise like an outbound pipeline: tiered investor list, stages
+  with time-in-stage limits, parallel batches, and a weekly at-risk sweep.
+  Use when the user asks to plan a raise, track investor conversations,
+  or asks "how do I run my fundraise process".
+license: MIT
+metadata:
+  version: "1.0"
+  tier: M
+  provenance: sanitized from the sales pipeline and outbound engine practice of a venture-backed software company
+---
+
+# Fundraise Pipeline
+
+A raise is a sales pipeline with one quarter to live. It gets the same
+discipline: stages, time-in-stage limits, and a weekly sweep that flags
+what is quietly dying.
+
+## The list, tiered before the first email
+
+Build 60-100 names, tiered before outreach, not during:
+
+| Tier | Who | Rule |
+|---|---|---|
+| A | 10-15 best-fit leads (stage, check size, thesis, portfolio adjacency) | Never contacted first. Warm up on B |
+| B | 25-40 solid fits | First 2 batches run here. Pitch v2 comes from B feedback |
+| C | Rest | Parallel filler, kept warm, promoted if signal appears |
+
+## Stages and stall thresholds
+
+Contacted → Meeting 1 → Partner meeting → Diligence → Term sheet.
+Time-in-stage limits, from the pipeline-stall rule: any investor
+exceeding the limit is stalled, not pending.
+
+- Contacted, no reply: 7 days → one bump, then dark.
+- Meeting 1 to next step: 10 days.
+- Partner meeting to diligence: 10 days.
+- Diligence to term sheet: 14 days.
+
+Stalled is a state, and it is recorded. Hope is not a state.
+
+## If/then rules
+
+- If a batch of 8-10 first meetings yields under 3 second meetings → stop
+  sending. Fix the deck or the wedge before burning tier-A names.
+- If an investor asks for data before Meeting 1 → send the teaser metrics
+  only. The data room opens at diligence, for everyone, at the same depth.
+- If a pass comes in → ask for the specific objection, log it verbatim,
+  and tag the stage it died at. Three passes with the same objection is
+  the deck's problem, not the market's.
+- If a term sheet lands → every live conversation gets a dated note the
+  same day. Scarcity is only real if the dates are.
+
+## Worked example (real math)
+
+Week 5 of a seed raise. Pipeline: 62 contacted, 19 first meetings (31%
+meeting rate), 7 partner meetings, 3 in diligence. Weekly sweep flags 2
+stalls: one investor is at day 12 post-Meeting-1 (over the 10-day limit,
+one nudge sent, moved to stalled), one is at day 16 in diligence with
+questions answered day 3 (over 14, marked cooling, tier-B follow-ups
+promoted). A pass arrives from a partner meeting citing "market too
+narrow", the third narrow-market pass at that stage. That triggers the
+if/then: pitch v3 gets a TAM rebuild before any tier-A send. Recording
+the pass means updating ALL affected fields together: the investor's
+stage to Passed, the objection log with the verbatim quote, the batch
+conversion stats, and the tier-A hold flag. A pass logged without the
+objection makes the pattern invisible until raise post-mortem.
+
+## Escalation
+
+The weekly sweep goes to whoever co-runs the raise every Friday: new
+stalls, conversion by stage, objection tally. If two consecutive sweeps
+show meeting-to-partner conversion under 25%, the founder pair reviews
+the pitch before the next batch, not after the raise.
+
+## Validation (definition of done)
+
+- [ ] Full list tiered before first outreach; tier-A untouched until pitch v2
+- [ ] Every investor has a stage and a days-in-stage count
+- [ ] Weekly sweep ran; every over-limit investor marked stalled or cooling
+- [ ] Every pass carries a verbatim objection and the stage it died at
+- [ ] Data room opens at diligence uniformly, never earlier for one firm
+- [ ] Term-sheet week: every live thread has a same-day dated update
+
+## Adapting this to your company
+
+Swap: the stage day-limits, batch size, the 25% conversion floor. Keep:
+tiering before outreach, time-in-stage as the stall definition, verbatim
+objection logging, and the uniform data-room gate.
